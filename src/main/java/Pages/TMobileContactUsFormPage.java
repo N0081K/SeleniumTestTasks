@@ -31,6 +31,8 @@ public class TMobileContactUsFormPage extends PageObjectModelAbstract{
     private WebElement uploadFileButton;
     @FindBy(how = How.NAME, using = "submit")
     private WebElement submitButton;
+    @FindBy(how = How.XPATH, using = "//h1")
+    private WebElement header;
 
     /**
      * enters text into subject Box
@@ -88,6 +90,16 @@ public class TMobileContactUsFormPage extends PageObjectModelAbstract{
      * submits the form
      */
     public void sumbit(){
-        submitButton.click();
+            submitButton.submit();
+
+    }
+
+    /**
+     * clicks the header
+     * workaround to let validate page content of textboxes
+     */
+    public void clickHeader(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(header).click().build().perform();
     }
 }

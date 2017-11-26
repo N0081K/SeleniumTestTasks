@@ -29,6 +29,8 @@ public class TMobileContactUsFormPage extends PageObjectModelAbstract{
     private WebElement sendCopyCheckBox;
     @FindBy(how = How.CSS, using = "#_ContactFormPortlet_WAR_ibaczfaqportletportlet_INSTANCE_KlFUaBS7XQQa_uploaderContent > input[type=\"file\"]")
     private WebElement uploadFileButton;
+    @FindBy(how = How.NAME, using = "submit")
+    private WebElement submitButton;
 
     /**
      * enters text into subject Box
@@ -82,4 +84,10 @@ public class TMobileContactUsFormPage extends PageObjectModelAbstract{
         uploadFileButton.sendKeys(absolutePath);
     }
 
+    /**
+     * submits the form
+     */
+    public void sumbit(){
+        submitButton.click();
+    }
 }
